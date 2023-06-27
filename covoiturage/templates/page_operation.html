@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+    .topnav a {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    color: #00aff5;
+    text-align: center;
+    padding: 34px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    .container {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 200px;
+    margin-left: 90px;
+    width: 100%;
+    }
+
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+
+    button {
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    }
+    table, th, td {
+    border:1px solid black;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <img style="float:left; padding: 10px;" src = "{{ url_for('static', filename = 'icon.png') }}" alt = "icon" width = "80px">
+        <a href="page_organisation_trajet">Organizez Votre Trajet</a>
+        <a href="page_trajet_en_cours">Mon Trajet En Cours</a>
+        <a href="page_statistiques">Statistiques</a>
+        <a style="float:right; padding: 10px;position: relative;" href="page_profil">
+            <img  src = "{{ url_for('static', filename = 'profil_icon.jpg') }}" alt = "icon" width = "80px">
+        </a>
+    </div>
+
+    <div class = "container"> 
+        <table style="text-align:center;">
+            <tr>
+                <th style="width:5%">Numéro</th>
+                <th style="width:15%">Montant</th>
+                <th>Utilisateur référencé</th>
+            </tr>
+            {%for i in range(0, len)%}
+            <tr>
+                <td>{{i+1}}</td>
+                <td>{{liste_parraine[i][2]}}</td>
+                <td>{{liste_parraine[i][1]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+
+</body>
+
+</html>

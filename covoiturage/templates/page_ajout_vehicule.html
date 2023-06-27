@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajout vehicule</title>
+</head>
+<style>
+    .topnav a {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    color: #00aff5;
+    text-align: center;
+    padding: 34px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    .container {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 100px;
+    width: 30%;
+    margin:auto;
+    }
+
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+
+    button {
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <img style="float:left; padding: 10px;" src = "{{ url_for('static', filename = 'icon.png') }}" alt = "icon" width = "80px">
+        <a href="page_organisation_trajet">Organizez Votre Trajet</a>
+        <a href="page_trajet_en_cours">Mon Trajet En Cours</a>
+        <a href="page_statistiques">Statistiques</a>
+        <a style="float:right; padding: 10px;position: relative;" href="page_profil">
+            <img  src = "{{ url_for('static', filename = 'profil_icon.jpg') }}" alt = "icon" width = "80px">
+        </a>
+    </div>
+
+    <div class = "container"> 
+        <form action="" method="post">
+            <h2 style="color: rgb(28, 221, 28);">{{message}}</h2>
+            <h3>Votre plaque d'immatriculation</h3>
+            <input type="text" placeholder="Votre plaque d'immatriculation" minlength="6" maxlength="6" name="immat" required>
+            <p style="color: red;">{{error}}</p>
+            <h3>Le modèle de votre véhicule</h3>
+            <input type="text" placeholder="Le modèle de votre véhicule" name="modele" required>
+            <h3>Le numéro de place de votre véhicule</h3>
+            <input type="number" placeholder="Le numéro de place de votre véhicule" name="places" required>
+            <h3>La couleur de votre véhicule</h3>
+            <input type="text" placeholder="La couleur de votre véhicule" name="couleur" required>
+            <h3>Le carburant de votre véhicule</h3>
+            <select name="carburant">
+                <option value="essence">Essence</option>
+                <option value="diesel">Diesel</option>
+                <option value="gpl">GPL</option>
+                <option value="bioéthanol">Bioéthanol</option>
+            </select>
+            <h3>La classe de votre véhicule</h3>
+            <select name="classe">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d"></option>
+            </select>
+            <button type="submit">Ajoutez votre véhicule</button>
+        </form>
+    </div>
+</body>
+
+</html>

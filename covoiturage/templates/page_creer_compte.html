@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Creer Compte</title>
+</head>
+<style>
+    .topnav a {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    color: #00aff5;
+    text-align: center;
+    padding: 34px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    .container {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 100px;
+    width: 30%;
+    margin:auto;
+    }
+
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+
+    button {
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <img style="float:left; padding: 10px;" src = "{{ url_for('static', filename = 'icon.png') }}" alt = "icon" width = "80px">
+        <a href="page_organisation_trajet">Organizez Votre Trajet</a>
+        <a href="page_trajet_en_cours">Mon Trajet En Cours</a>
+        <a href="page_statistiques">Statistiques</a>
+        <a style="float:right; padding: 10px;position: relative;" href="page_profil">
+            <img  src = "{{ url_for('static', filename = 'profil_icon.jpg') }}" alt = "icon" width = "80px">
+        </a>
+    </div>
+
+    <div class = "container"> 
+        <form action="" method="post">
+            <h3>Votre Email</h3>
+            <input type="text" placeholder="Votre Email" name="email" maxlength="25" required>
+            <p style="color: red;">{{error}}</p>
+            <h3>Votre mot de passe</h3>
+            <input type="text" placeholder="Votre mot de passe" name="mdp" maxlength="25" required>
+            <h3>Votre Nom</h3>
+            <input type="text" placeholder="Votre Nom" name="nom" maxlength="25" required>
+            <h3>Votre Prenom</h3>
+            <input type="text" placeholder="Votre Prenom" name="prenom" maxlength="25" required>
+            <h3>Votre adresse</h3>
+            <input type="text" placeholder="Votre adresse" name="adresse" maxlength="25" required>
+            <h3>Votre date de naissance</h3>
+            <input type="date" placeholder="Votre date de naissance" name="date_nai" required>
+            <h3>Votre permis</h3>
+            <input type="text" placeholder="Votre permis" name="permis" maxlength="7" required>
+            <button type="submit">Créer un nouveau compte</button>
+        </form>
+    </div>
+</body>
+
+</html>

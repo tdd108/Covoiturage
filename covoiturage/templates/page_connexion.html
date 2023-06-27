@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Connexion</title>
+</head>
+<style>
+
+
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 100px;
+  width: 30%;
+  margin:auto;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: grey;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+</style>
+
+<body>
+    <img style="padding: 30px; display: block; margin-left: auto; margin-right: auto;" src = "{{ url_for('static', filename = 'icon.png') }}" alt = "icon" width = "200px">
+
+    <div class="container">
+        <form action="" method="post">
+            <label for="uname"><b>Email</b></label>
+            <input type="text" placeholder="Entrez Email" name="email" required>
+        
+            <label for="psw"><b>Mot De Passe</b></label>
+            <input type="password" placeholder="Entrez mot de passe" name="mdp" required>
+            <p style="color: red;">{{login_error}}</p>
+        
+            <button type="submit">Connexion</button>
+            <a href="/page_creer_compte">Nouvel utilisateur? Créez votre compte ici</a>
+        </form>    
+    </div>
+</body>
+</html>

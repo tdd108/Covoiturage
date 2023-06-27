@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style>
+    .topnav a {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    color: #00aff5;
+    text-align: center;
+    padding: 34px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    }
+    .container {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 100px;
+    width: 100%;
+    }
+
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+    #result{
+        border:1px solid black;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <img style="float:left; padding: 10px;" src = "{{ url_for('static', filename = 'icon.png') }}" alt = "icon" width = "80px">
+        <a href="page_organisation_trajet">Organizez Votre Trajet</a>
+        <a href="page_trajet_en_cours">Mon Trajet En Cours</a>
+        <a href="page_statistiques">Statistiques</a>
+        <a style="float:right; padding: 10px;position: relative;" href="page_profil">
+            <img  src = "{{ url_for('static', filename = 'profil_icon.jpg') }}" alt = "icon" width = "80px">
+        </a>
+    </div>
+    <br>
+    <div class = "container"> 
+        <h2>Étapes proposées</h2>
+        <form method="post">
+            {%for i in range(0, len)%}
+                <div id = "result">
+                    <p>Email: {{liste_etape[i][1]}}</p>
+                    <p>Départ: {{liste_etape[i][2]}}</p>
+                    <p>Date de départ: {{liste_etape[i][3]}}</p>  
+                    <button style="float: right;position: relative;bottom: 30px; right: 20px;" name = "ide" value = {{liste_etape[i][0]}}>Refuser</button>
+                </div>
+                <br>
+            {%endfor%}
+        </form>
+    </div>
+
+</body>
+
+</html>
